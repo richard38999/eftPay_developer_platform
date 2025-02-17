@@ -3,83 +3,32 @@
 ## 简介
 顾客出示二维码（Customer Present QR Code，简称CPQR）是一种常见的店内支付场景，顾客通过展示自己电子钱包中的付款码，商家通过扫描该码完成收款。
 
+## 支持的支付方式
+- 支付宝 (Alipay)
+- 微信支付 (WeChat Pay)
+- PayMe
+- JKOPAY
+- Hana Pay
+- 数字人民币 (e-CNY)
+
 ## 接入流程
 1. 商家扫描顾客的付款码
 2. 调用支付 API 发起交易
 3. 获取交易结果
 
-## API 参考
+## 功能清单
+- [消费](./apis/othersPayment/sale.md)
+- [撤销](./apis/othersPayment/void.md)
+- [退款](./apis/othersPayment/refund.md)
+- [管理退款](./apis/othersPayment/admin-refund.md)
+- [消费通知](./apis/othersPayment/sale-advice.md)
+- [冲正](./apis/othersPayment/reversal.md)
 
-### 支付接口
-#### 请求地址
-```http
-POST /api/v1/payment/qrcode
-```
-
-#### 请求参数
-| 参数名 | 类型 | 必填 | 描述 |
-|--------|------|------|------|
-| qrCode | String | 是 | 顾客付款码内容 |
-| amount | Number | 是 | 支付金额（单位：分） |
-| merchantOrderNo | String | 是 | 商户订单号 |
-| description | String | 否 | 订单描述 |
-
-#### 响应参数
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| orderNo | String | 系统订单号 |
-| status | String | 交易状态 |
-| amount | Number | 交易金额 |
-| payTime | String | 支付时间 |
-
-### 查询订单接口
-#### 请求地址
-```http
-GET /api/v1/payment/query
-```
-
-#### 请求参数
-| 参数名 | 类型 | 必填 | 描述 |
-|--------|------|------|------|
-| orderNo | String | 是 | 系统订单号 |
-| merchantOrderNo | String | 是 | 商户订单号 |
-
-#### 响应参数
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| orderNo | String | 系统订单号 |
-| status | String | 交易状态 |
-| amount | Number | 交易金额 |
-| payTime | String | 支付时间 |
-
-## 状态码说明
-| 状态码 | 描述 |
-|--------|------|
-| SUCCESS | 支付成功 |
-| PENDING | 支付处理中 |
-| FAILED | 支付失败 |
-
-## 示例代码
-```java
-// Java 示例代码
-public class PaymentExample {
-    public static void main(String[] args) {
-        // 初始化支付参数
-        Map<String, Object> params = new HashMap<>();
-        params.put("qrCode", "28930139019301");
-        params.put("amount", 1000); // 10.00元
-        params.put("merchantOrderNo", "TEST" + System.currentTimeMillis());
-        
-        // 发起支付请求
-        PaymentResponse response = paymentService.pay(params);
-        
-        // 处理响应
-        if ("SUCCESS".equals(response.getStatus())) {
-            // 支付成功处理逻辑
-        }
-    }
-}
-```
+## 重要文档
+- [响应码说明](./response-code.md)
+- [异常处理](./exceptional-handling.md)
+- [交易凭证](./receipt.md)
+- [条码前缀](./barcode-prefix.md)
 
 ## 注意事项
 1. 商户订单号需要保证唯一性

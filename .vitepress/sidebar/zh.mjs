@@ -32,7 +32,7 @@ function sidebarInStorePayment() {
   return [
     {
       text: "顾客出示二维码",
-      base: "/zh/in-store-payment/CPQR/",
+      base: "/zh/in-store-payment/customer-present-qrcode/",
       collapsed: false,
       items: [
         { text: "简介", link: "introduction" },
@@ -40,12 +40,12 @@ function sidebarInStorePayment() {
         { text: "异常处理", link: "exceptional-handling" },
         {
           text: "API接口",
-          base: "/zh/in-store-payment/CPQR/apis/",
+          base: "/zh/in-store-payment/customer-present-qrcode/apis/",
           collapsed: false,
           items: [
             {
               text: "支付宝/微信/PayMe",
-              base: "/zh/in-store-payment/CPQR/apis/othersPayment/",
+              base: "/zh/in-store-payment/customer-present-qrcode/apis/othersPayment/",
               collapsed: false,
               items: [
                 { text: "消费", link: "sale" },
@@ -58,7 +58,7 @@ function sidebarInStorePayment() {
             },
             {
               text: "银联二维码",
-              base: "/zh/in-store-payment/CPQR/apis/unionpayqr/",
+              base: "/zh/in-store-payment/customer-present-qrcode/apis/unionpayqr/",
               collapsed: false,
               items: [
                 { text: "消费", link: "sale" },

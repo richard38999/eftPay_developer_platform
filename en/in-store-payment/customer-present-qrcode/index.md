@@ -3,10 +3,32 @@
 ## Introduction
 Customer Present QR Code (CPQR) is a common in-store payment scenario where customers show their payment QR code from their e-wallet, and merchants scan the code to complete the payment.
 
+## Supported Payment Methods
+- Alipay
+- WeChat Pay
+- PayMe
+- JKOPAY
+- Hana Pay
+- e-CNY (Digital RMB)
+
 ## Integration Process
 1. Merchant scans customer's payment QR code
 2. Call payment API to initiate transaction
 3. Get transaction result
+
+## Features
+- [Sale](./apis/othersPayment/sale.md)
+- [Void](./apis/othersPayment/void.md)
+- [Refund](./apis/othersPayment/refund.md)
+- [Admin Refund](./apis/othersPayment/admin-refund.md)
+- [Sale Advice](./apis/othersPayment/sale-advice.md)
+- [Reversal](./apis/othersPayment/reversal.md)
+
+## Important Documents
+- [Response Codes](./response-code.md)
+- [Exception Handling](./exceptional-handling.md)
+- [Receipt](./receipt.md)
+- [Barcode Prefix](./barcode-prefix.md)
 
 ## API Reference
 
